@@ -1,0 +1,33 @@
+// Stub — unit 1 fills in the full Permit type, Company/Status/PaymentType unions, and NewPermit.
+// Workers must import from this file rather than redeclaring the shape.
+
+export type Company = string;
+export type Status = string;
+export type PaymentType = string;
+
+export interface Permit {
+  id: string;
+  created_at: string;
+  customer_name: string;
+  customer_telephone: string | null;
+  job_number: string;
+  company: Company | null;
+  received_date: string | null;
+  date_of_install: string | null;
+  address: string;
+  permit_needed: string | null;
+  permit_submitted: string | null;
+  permit_number: string | null;
+  permit_cost: number | null;
+  payment_type: PaymentType | null;
+  status: Status;
+  rough: string | null;
+  final: string | null;
+  notes: string | null;
+  plumbing_inspector: string | null;
+  project_start_date: string | null;
+  project_finish_date: string | null;
+  inspection_hours_townhall: string | null;
+}
+
+export type NewPermit = Omit<Permit, "id" | "created_at">;

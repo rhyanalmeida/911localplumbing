@@ -1,0 +1,12 @@
+/* Stub — real styles land in unit 16 */
+:root {
+  font-family: system-ui, sans-serif;
+}
+body {
+  margin: 0;
+}
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
