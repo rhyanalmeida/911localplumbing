@@ -1,4 +1,5 @@
-// Stub — unit 9 finalizes.
+import { STATUSES } from "../../constants/statuses";
+
 export interface InspectionStatusNotesValue {
   status: string;
   rough: string;
@@ -11,6 +12,53 @@ export interface InspectionStatusNotesProps {
   onChange: (patch: Partial<InspectionStatusNotesValue>) => void;
 }
 
-export function InspectionStatusNotes(_props: InspectionStatusNotesProps) {
-  return <fieldset><legend>Inspection Status & Notes</legend></fieldset>;
+export function InspectionStatusNotes({
+  value,
+  onChange,
+}: InspectionStatusNotesProps) {
+  return (
+    <fieldset className="form-section">
+      <legend>Inspection Status &amp; Notes</legend>
+      <div className="form-grid">
+        <label>
+          Status
+          <select
+            value={value.status}
+            onChange={(e) => onChange({ status: e.target.value })}
+          >
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Rough
+          <input
+            type="date"
+            value={value.rough}
+            onChange={(e) => onChange({ rough: e.target.value })}
+          />
+        </label>
+        <label>
+          Final
+          <input
+            type="date"
+            value={value.final}
+            onChange={(e) => onChange({ final: e.target.value })}
+          />
+        </label>
+        <label className="form-grid__full">
+          Notes
+          <textarea
+            rows={4}
+            placeholder="Any additional notes about this permit..."
+            value={value.notes}
+            onChange={(e) => onChange({ notes: e.target.value })}
+          />
+        </label>
+      </div>
+    </fieldset>
+  );
 }

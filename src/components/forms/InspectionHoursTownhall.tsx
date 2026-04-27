@@ -1,4 +1,3 @@
-// Stub — unit 11 finalizes.
 export interface InspectionHoursTownhallValue {
   inspection_hours_townhall: string;
 }
@@ -8,6 +7,23 @@ export interface InspectionHoursTownhallProps {
   onChange: (patch: Partial<InspectionHoursTownhallValue>) => void;
 }
 
-export function InspectionHoursTownhall(_props: InspectionHoursTownhallProps) {
-  return <fieldset><legend>Inspection Hours & Townhall</legend></fieldset>;
+export function InspectionHoursTownhall({
+  value,
+  onChange,
+}: InspectionHoursTownhallProps) {
+  return (
+    <fieldset className="form-section">
+      <legend>Inspection Hours &amp; Townhall</legend>
+      <label>
+        <textarea
+          rows={3}
+          placeholder="Inspection hours, townhall details, etc."
+          value={value.inspection_hours_townhall}
+          onChange={(e) =>
+            onChange({ inspection_hours_townhall: e.target.value })
+          }
+        />
+      </label>
+    </fieldset>
+  );
 }

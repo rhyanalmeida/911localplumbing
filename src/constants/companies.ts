@@ -1,11 +1,8 @@
-// Stub — unit 2 finalizes (typed union, isCompany guard).
-import type { Company } from "../types/permit";
+import { COMPANY_VALUES, type Company } from "../types/permit";
 
-export const COMPANIES: readonly Company[] = [
-  "Revelare",
-  "Luxury Makeover",
-  "Yankee",
-  "Long Home",
-  "911 Local Plumbing",
-  "Capital",
-];
+export const COMPANIES = COMPANY_VALUES;
+export type { Company };
+
+export function isCompany(value: string): value is Company {
+  return (COMPANIES as readonly string[]).includes(value);
+}

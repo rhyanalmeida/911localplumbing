@@ -1,13 +1,9 @@
-// Stub — unit 3 finalizes.
-import type { Status } from "../types/permit";
+import { STATUS_VALUES, type Status } from "../types/permit";
 
-export const STATUSES: readonly Status[] = [
-  "Open",
-  "In Progress",
-  "Issued",
-  "No Permit",
-  "Closed",
-  "Kurt Needed",
-];
-
+export const STATUSES = STATUS_VALUES;
+export type { Status };
 export const DEFAULT_STATUS: Status = "Open";
+
+export function isStatus(value: string): value is Status {
+  return (STATUSES as readonly string[]).includes(value);
+}
