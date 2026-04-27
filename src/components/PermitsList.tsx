@@ -17,8 +17,8 @@ function formatDate(value: string | null): string {
   return `${month}/${day}/${year}`;
 }
 
-function formatString(value: string | null | undefined): string {
-  if (value === null || value === undefined || value === "") return DASH;
+function formatString(value: string | null): string {
+  if (value === null || value === "") return DASH;
   return value;
 }
 
@@ -28,7 +28,7 @@ export function PermitsList(props: PermitsListProps) {
   });
 
   if (isLoading) {
-    return <div>Loading{"…"}</div>;
+    return <div>Loading…</div>;
   }
 
   const permits: Permit[] = data ?? [];
