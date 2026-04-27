@@ -1,9 +1,34 @@
-// Stub — unit 1 fills in the full Permit type, Company/Status/PaymentType unions, and NewPermit.
-// Workers must import from this file rather than redeclaring the shape.
+// Domain types for the permit tracker. Workers must import from this file
+// rather than redeclaring the shape.
 
-export type Company = string;
-export type Status = string;
-export type PaymentType = string;
+export const COMPANY_VALUES = [
+  "Revelare",
+  "Luxury Makeover",
+  "Yankee",
+  "Long Home",
+  "911 Local Plumbing",
+  "Capital",
+] as const;
+export type Company = typeof COMPANY_VALUES[number];
+
+export const STATUS_VALUES = [
+  "Open",
+  "In Progress",
+  "Issued",
+  "No Permit",
+  "Closed",
+  "Kurt Needed",
+] as const;
+export type Status = typeof STATUS_VALUES[number];
+
+export const PAYMENT_TYPE_VALUES = [
+  "Cash",
+  "Check",
+  "Credit Card",
+  "ACH",
+  "Other",
+] as const;
+export type PaymentType = typeof PAYMENT_TYPE_VALUES[number];
 
 export interface Permit {
   id: string;
